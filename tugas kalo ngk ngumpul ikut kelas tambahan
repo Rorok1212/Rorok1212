@@ -1,21 +1,32 @@
-# Aplikasi Menghitung Luas dan Keliling Bangun Datar
+class Shape:
+    def area(self):
+        pass
 
-import math
 
-def hitung_persegi(sisi):
-    luas = sisi ** 2
-    keliling = 4 * sisi
-    return luas, keliling
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
 
-def hitung_persegi_panjang(panjang, lebar):
-    luas = panjang * lebar
-    keliling = 2 * (panjang + lebar)
-    return luas, keliling
+    def area(self):
+        return self.side ** 2
 
-def hitung_lingkaran(jari_jari):
-    luas = math.pi * (jari_jari ** 2)
-    keliling = 2 * math.pi * jari_jari
-    return luas, keliling
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * (self.radius ** 2)
+
 
 def main():
     print("Pilih bangun datar:")
@@ -25,20 +36,21 @@ def main():
     choice = input("Masukkan pilihan (1/2/3): ")
 
     if choice == "1":
-        sisi = float(input("Masukkan panjang sisi persegi: "))
-        luas, keliling = hitung_persegi(sisi)
-        print(f"Luas Persegi: {luas}, Keliling Persegi: {keliling}")
+        side = float(input("Masukkan panjang sisi persegi: "))
+        shape = Square(side)
+        print(f"Luas Persegi: {shape.area()}")
     elif choice == "2":
-        panjang = float(input("Masukkan panjang persegi panjang: "))
-        lebar = float(input("Masukkan lebar persegi panjang: "))
-        luas, keliling = hitung_persegi_panjang(panjang, lebar)
-        print(f"Luas Persegi Panjang: {luas}, Keliling Persegi Panjang: {keliling}")
+        length = float(input("Masukkan panjang persegi panjang: "))
+        width = float(input("Masukkan lebar persegi panjang: "))
+        shape = Rectangle(length, width)
+        print(f"Luas Persegi Panjang: {shape.area()}")
     elif choice == "3":
-        jari_jari = float(input("Masukkan jari-jari lingkaran: "))
-        luas, keliling = hitung_lingkaran(jari_jari)
-        print(f"Luas Lingkaran: {luas}, Keliling Lingkaran: {keliling}")
+        radius = float(input("Masukkan jari-jari lingkaran: "))
+        shape = Circle(radius)
+        print(f"Luas Lingkaran: {shape.area()}")
     else:
         print("Pilihan tidak valid.")
+
 
 if __name__ == "__main__":
     main()
