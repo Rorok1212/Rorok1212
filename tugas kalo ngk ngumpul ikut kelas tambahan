@@ -1,0 +1,44 @@
+# Aplikasi Menghitung Luas dan Keliling Bangun Datar
+
+import math
+
+def hitung_persegi(sisi):
+    luas = sisi ** 2
+    keliling = 4 * sisi
+    return luas, keliling
+
+def hitung_persegi_panjang(panjang, lebar):
+    luas = panjang * lebar
+    keliling = 2 * (panjang + lebar)
+    return luas, keliling
+
+def hitung_lingkaran(jari_jari):
+    luas = math.pi * (jari_jari ** 2)
+    keliling = 2 * math.pi * jari_jari
+    return luas, keliling
+
+def main():
+    print("Pilih bangun datar:")
+    print("1. Persegi")
+    print("2. Persegi Panjang")
+    print("3. Lingkaran")
+    choice = input("Masukkan pilihan (1/2/3): ")
+
+    if choice == "1":
+        sisi = float(input("Masukkan panjang sisi persegi: "))
+        luas, keliling = hitung_persegi(sisi)
+        print(f"Luas Persegi: {luas}, Keliling Persegi: {keliling}")
+    elif choice == "2":
+        panjang = float(input("Masukkan panjang persegi panjang: "))
+        lebar = float(input("Masukkan lebar persegi panjang: "))
+        luas, keliling = hitung_persegi_panjang(panjang, lebar)
+        print(f"Luas Persegi Panjang: {luas}, Keliling Persegi Panjang: {keliling}")
+    elif choice == "3":
+        jari_jari = float(input("Masukkan jari-jari lingkaran: "))
+        luas, keliling = hitung_lingkaran(jari_jari)
+        print(f"Luas Lingkaran: {luas}, Keliling Lingkaran: {keliling}")
+    else:
+        print("Pilihan tidak valid.")
+
+if __name__ == "__main__":
+    main()
